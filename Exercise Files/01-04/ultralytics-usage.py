@@ -10,7 +10,7 @@ model = YOLO("yolo11n-pose.pt")
 # Use different modes
 # https://docs.ultralytics.com/modes
 results = model.predict(source="image.png",
-                        save=True)
+                        save=True) # sava powoduje zapsianie nowego obrazka w podkatalogu
 #..................................
 
 # Extract the results

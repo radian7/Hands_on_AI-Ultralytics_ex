@@ -12,8 +12,8 @@ blurred = cv2.blur(image, (50, 50))
 #..................................
 
 # Operation-3: Visualize the image
-# cv2.imshow("test", blurred)
-# cv2.waitKey(0)  # display until key press
+#cv2.imshow("test", blurred)
+#cv2.waitKey(0)  # display until key press
 #........................
 
 # Operation-4: Write the image in directory

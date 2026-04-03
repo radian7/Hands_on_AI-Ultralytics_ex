@@ -1,7 +1,7 @@
 # Hands_on_AI-Ultralytics_ex
 
 # 01-02
-pip install -r .pip install -r '.\Exercise Files\requirements.txt'
+pip install -r '.\Exercise Files\requirements.txt'
 
 cd '.\Exercise Files\01-02'
 uv run .\opencv_operations.py

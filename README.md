@@ -7,7 +7,7 @@ cd '.\Exercise Files\01-02'
 uv run .\opencv_operations.py
 
 
-# 02-01
+# 02-01 prygotowanie danych uczących za pomocą label-studio
 pip install label-studio
 # po instlacji uruchom:
 label-studio start
@@ -26,11 +26,11 @@ rozpoakowanie danych do uczenia modelu
 cd 02-02
 uv run split-data.py
 
-# 03-01
+# 03-01 eksportowanie modelu
 cd 03-01
 uv run tasks-and-modes.py
 
-# 03-02
+# 03-02 trenowanie modelu
 cd .\03-02
 uv run  .\model-training.py
 

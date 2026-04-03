@@ -8,9 +8,10 @@ def unzip_file(zip_path, extract_to):
                  'r') as zip_ref:
         zip_ref.extractall(extract_to)
 
-unzip_file("export.zip",
-           "export")
+# unzip_file("export.zip",
+#            "export")
 
+#Podział na zbiory uczący, walidujacy i testowy
 splitfolders.ratio("export",
                    "dataset",
-                   (0.7, 0.15, 0.15))
+                   ratio=(0.7, 0.15, 0.15))

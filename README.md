@@ -27,6 +27,7 @@ cd 02-02
 uv run split-data.py
 
 # 03-01
-
+cd 03-01
+uv run tasks-and-modes.py
 
 

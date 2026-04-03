@@ -30,4 +30,8 @@ uv run split-data.py
 cd 03-01
 uv run tasks-and-modes.py
 
+# 03-02
+cd .\03-02
+uv run  .\model-training.py
+
 

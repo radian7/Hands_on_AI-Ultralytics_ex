@@ -34,4 +34,10 @@ uv run tasks-and-modes.py
 cd .\03-02
 uv run  .\model-training.py
 
+Model poprawia się epoka po epoce
+
+Po zkaończeniu trenowania mozna obejrzec np. plik PR_curve.png
+jest to krzywa precyzji i kopletność powinno być powyżej 89%
+
+
 

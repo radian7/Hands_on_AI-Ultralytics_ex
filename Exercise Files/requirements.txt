@@ -1,0 +1,4 @@
+ultralytics==8.3.91  # Ultralytics latest package can be used as well.
+split-folders==0.5.1
+label-studio==1.16.0  # latest package may work but no guarantees.
+streamlit==1.41.1  # latest package may work but no guarantees.

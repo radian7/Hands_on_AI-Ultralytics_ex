@@ -1,0 +1,7 @@
+path: "path/to/dataset/directory"
+train: "train directory"
+val: "validation directory"
+test: "test directory"
+
+names:
+  apple

@@ -1,0 +1,7 @@
+path: "G:\\Course code\\03-02\\dataset"
+train: "train"
+val: "val"
+test: "test"
+
+names:
+  0: apple

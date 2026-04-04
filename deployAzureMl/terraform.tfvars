@@ -11,8 +11,10 @@ model_version    = "1"
 # ---- Endpoint ----
 endpoint_name   = "torchscript-yolo-endpoint"
 deployment_name = "torchscript-yolo-deploy-1"
+# Standard_D2as_v4
 instance_type   = "Standard_DS2_v2"
 instance_count  = 1
 
 # ---- Environment (curated PyTorch) ----
+# minimal-py312-cuda12.4-inference
 curated_environment = "azureml://registries/azureml/environments/acpt-pytorch-2.2-cuda12.1/labels/latest"

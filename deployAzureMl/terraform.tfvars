@@ -4,7 +4,7 @@ resource_group_name = "radian7-rg"
 workspace_name      = "Workspace1"
 
 # ---- Model ----
-model_local_path = "Exercice Files/03-02/runs/detect/train/weights/best.torchscript"
+model_local_path = "Exercise Files/03-02/runs/detect/train/weights/best.torchscript"
 model_name       = "torchscript-yolo-model"
 model_version    = "1"
 

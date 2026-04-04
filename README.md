@@ -32,6 +32,7 @@ uv run tasks-and-modes.py
 
 # 03-02 trenowanie modelu
 cd .\03-02
+Warto zainstalować pyTorch with Cuda, aby użyć GPU
 uv run  .\model-training.py
 
 Model poprawia się epoka po epoce

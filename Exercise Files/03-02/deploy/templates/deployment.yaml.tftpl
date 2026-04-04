@@ -1,0 +1,28 @@
+$schema: https://azuremlschemas.azureedge.net/latest/managedOnlineDeployment.schema.json
+
+name: ${deployment_name}
+
+model: azureml:${model_name}:${model_version}
+
+code_configuration:
+  code: ../score
+  scoring_script: score.py
+
+environment: ${environment}
+
+instance_type: ${instance_type}
+instance_count: ${instance_count}
+
+request_settings:
+  request_timeout_ms: 90000
+  max_concurrent_requests_per_instance: 1
+
+liveness_probe:
+  initial_delay: 300
+  period: 30
+  failure_threshold: 30
+
+readiness_probe:
+  initial_delay: 300
+  period: 30
+  failure_threshold: 30

@@ -87,6 +87,14 @@ Kluczowa rzecz: score.py nie pobiera modelu samodzielnie — dostaje gotową śc
 
 
 
+# Deploy API:
+Workflow przy kolejnych zmianach conda.yaml:
+
+Zwiększ env_version w terraform.tfvars (np. "5" → "6")
+Uruchom .\redeploy.ps1
+
+
+
 # Hands_on_AI-Ultralytics_ex
 
 # 01-02

@@ -86,13 +86,23 @@ resource "terraform_data" "deployment" {
   provisioner "local-exec" {
     interpreter = ["PowerShell", "-Command"]
     command     = <<-EOT
-      az ml online-deployment create `
+      $exists = az ml online-deployment show `
+        --name '${var.deployment_name}' `
+        --endpoint-name '${var.endpoint_name}' `
         --workspace-name '${var.workspace_name}' `
         --resource-group '${var.resource_group_name}' `
-        --endpoint-name '${var.endpoint_name}' `
-        --name '${var.deployment_name}' `
-        --file '${path.module}/.generated/deployment.yaml' `
-        --all-traffic
+        --query name -o tsv 2>$null
+      if ($exists) {
+        Write-Host "Deployment '${var.deployment_name}' already exists – skipping create."
+      } else {
+        az ml online-deployment create `
+          --workspace-name '${var.workspace_name}' `
+          --resource-group '${var.resource_group_name}' `
+          --endpoint-name '${var.endpoint_name}' `
+          --name '${var.deployment_name}' `
+          --file '${path.module}/.generated/deployment.yaml' `
+          --all-traffic
+      }
     EOT
   }
 

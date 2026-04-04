@@ -11,7 +11,7 @@ model_version    = "1"
 # ---- Endpoint ----
 endpoint_name   = "torchscript-yolo-endpoint"
 deployment_name = "torchscript-yolo-deploy-1"
-instance_type   = "Standard_DS3_v2"
+instance_type   = "Standard_DS2_v2"
 instance_count  = 1
 
 # ---- Environment (curated PyTorch) ----

@@ -61,7 +61,7 @@ variable "curated_environment" {
 variable "instance_type" {
   type        = string
   description = "VM size for the managed online deployment"
-  default     = "Standard_DS3_v2"
+  default     = "Standard_DS2_v2"
 }
 
 variable "instance_count" {

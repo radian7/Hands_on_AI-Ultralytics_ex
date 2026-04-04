@@ -42,7 +42,6 @@ resource "local_file" "deployment_yaml" {
     deployment_name = var.deployment_name
     model_name      = var.model_name
     model_version   = var.model_version
-    environment     = var.curated_environment
     instance_type   = var.instance_type
     instance_count  = var.instance_count
   })
@@ -80,7 +79,6 @@ resource "terraform_data" "deployment" {
 
   triggers_replace = [
     filemd5(var.model_local_path),
-    var.curated_environment,
     var.instance_type,
     var.instance_count,
   ]

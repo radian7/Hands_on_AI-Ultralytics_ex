@@ -8,7 +8,10 @@ code_configuration:
   code: ../score
   scoring_script: score.py
 
-environment: ${environment}
+environment:
+  name: torchscript-inference-env
+  image: mcr.microsoft.com/azureml/minimal-ubuntu22.04-py311-cpu-inference:latest
+  conda_file: ../score/conda.yaml
 
 instance_type: ${instance_type}
 instance_count: ${instance_count}

@@ -15,6 +15,5 @@ deployment_name = "torchscript-yolo-deploy-1"
 instance_type   = "Standard_DS2_v2"
 instance_count  = 1
 
-# ---- Environment (curated PyTorch) ----
-# minimal-py312-cuda12.4-inference
-curated_environment = "azureml://registries/azureml/environments/acpt-pytorch-2.2-cuda12.1/labels/latest"
+# ---- Environment (lightweight, installs torch via pip) ----
+curated_environment = "azureml://registries/azureml/environments/minimal-py311-inference/labels/latest"

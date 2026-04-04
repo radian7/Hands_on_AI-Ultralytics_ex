@@ -55,7 +55,7 @@ variable "deployment_name" {
 variable "curated_environment" {
   type        = string
   description = "Azure ML curated environment URI"
-  default     = "azureml://registries/azureml/environments/acpt-pytorch-2.2-cuda12.1/labels/latest"
+  default     = "azureml://registries/azureml/environments/minimal-py311-inference/labels/latest"
 }
 
 variable "instance_type" {

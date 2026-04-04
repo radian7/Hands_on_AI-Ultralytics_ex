@@ -59,7 +59,7 @@ Skrypt załaduje wytrenowany model (`runs\detect\train\weights\best.pt`) i wyeks
 
 ## Deploy modelu na Azure ML (OpenTofu)
 
-Pliki konfiguracyjne znajdują się w `Exercise Files/03-02/deploy/`.
+Pliki konfiguracyjne znajdują się w `deployAzureMl/`.
 
 ### Wymagania
 - [OpenTofu](https://opentofu.org/) >= 1.6
@@ -75,7 +75,7 @@ Pliki konfiguracyjne znajdują się w `Exercise Files/03-02/deploy/`.
 
 2. **Skopiuj i uzupełnij konfigurację:**
    ```bash
-   cd "Exercise Files/03-02/deploy"
+   cd deployAzureMl
    cp terraform.tfvars.example terraform.tfvars
    ```
    Edytuj `terraform.tfvars` — ustaw `subscription_id`, `resource_group_name` i `model_local_path` (ścieżka do pliku `.torchscript`).
@@ -96,7 +96,7 @@ Pliki konfiguracyjne znajdują się w `Exercise Files/03-02/deploy/`.
 
 ### Struktura plików deploy
 ```
-deploy/
+deployAzureMl/
 ├── providers.tf                  # azurerm + azapi providers
 ├── variables.tf                  # zmienne (model_local_path, endpoint_name, ...)
 ├── main.tf                       # workspace ref + model + endpoint + deployment

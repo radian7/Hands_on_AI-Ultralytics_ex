@@ -58,6 +58,12 @@ variable "curated_environment" {
   default     = "azureml://registries/azureml/environments/minimal-py311-inference/labels/latest"
 }
 
+variable "env_version" {
+  type        = string
+  description = "Version of the inline Azure ML environment (increment when conda.yaml or base image changes)"
+  default     = "5"
+}
+
 variable "instance_type" {
   type        = string
   description = "VM size for the managed online deployment"

@@ -17,3 +17,4 @@ instance_count  = 1
 
 # ---- Environment (lightweight, installs torch via pip) ----
 curated_environment = "azureml://registries/azureml/environments/minimal-py311-inference/labels/latest"
+env_version         = "5"

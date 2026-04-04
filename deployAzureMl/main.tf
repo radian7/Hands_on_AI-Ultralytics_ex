@@ -42,6 +42,7 @@ resource "local_file" "deployment_yaml" {
     deployment_name = var.deployment_name
     model_name      = var.model_name
     model_version   = var.model_version
+    env_version     = var.env_version
     instance_type   = var.instance_type
     instance_count  = var.instance_count
   })

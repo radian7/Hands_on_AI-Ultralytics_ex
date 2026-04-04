@@ -11,7 +11,7 @@ from ultralytics import YOLO
 #         workers=1,
 #         epochs=100,
 #     )
-
+# device=0 aby użyć GPU RTX 3060 (wymaga pyTorch with CUDA), device=-1 aby użyć CPU 
 
 
 model = YOLO("runs\\detect\\train\\weights\\best.pt")

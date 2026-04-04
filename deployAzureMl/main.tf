@@ -79,6 +79,8 @@ resource "terraform_data" "deployment" {
 
   triggers_replace = [
     filemd5(var.model_local_path),
+    filemd5("${path.module}/score/score.py"),
+    filemd5("${path.module}/score/conda.yaml"),
     var.instance_type,
     var.instance_count,
   ]

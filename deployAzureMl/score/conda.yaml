@@ -8,5 +8,6 @@ dependencies:
       - --extra-index-url https://pypi.org/simple
       - azureml-inference-server-http
       - torch
+      - torchvision
       - Pillow
       - numpy

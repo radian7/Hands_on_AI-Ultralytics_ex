@@ -7,6 +7,7 @@ import logging
 import torch
 import numpy as np
 from PIL import Image
+from torchvision.ops import nms
 
 logger = logging.getLogger(__name__)
 
@@ -39,6 +40,11 @@ def init():
     logger.info("Model loaded successfully")
 
 
+# Progi zgodne z domyślnymi wartościami Ultralytics YOLO.predict()
+CONF_THRESHOLD = 0.25
+IOU_THRESHOLD = 0.45
+
+
 def _decode_image(b64_string: str) -> torch.Tensor:
     """Decode base64 image to a [1, 3, IMG_SIZE, IMG_SIZE] float32 tensor."""
     raw = base64.b64decode(b64_string)
@@ -47,6 +53,52 @@ def _decode_image(b64_string: str) -> torch.Tensor:
     arr = np.array(img, dtype=np.float32) / 255.0  # [H, W, C] 0-1
     arr = arr.transpose(2, 0, 1)  # [C, H, W]
     return torch.from_numpy(arr).unsqueeze(0)  # [1, C, H, W]
+
+
+def _apply_nms(raw_output: torch.Tensor) -> list:
+    """Zastosuj NMS na surowym wyjściu modelu i zwróć listę detekcji.
+
+    Wejście:  tensor [1, 84, 8400]  (4 coords + 80 klas COCO)
+    Wyjście:  lista słowników [{'box': [x1,y1,x2,y2], 'score': float, 'class_id': int}, ...]
+    """
+    # Transponuj: [1, 84, 8400] → [8400, 84]
+    preds = raw_output[0].T
+
+    # Rozdziel współrzędne (cx,cy,w,h) i prawdopodobieństwa klas
+    boxes_cxcywh = preds[:, :4]
+    class_scores = preds[:, 4:]
+
+    # Dla każdej propozycji weź klasę z najwyższym prawdopodobieństwem
+    scores, class_ids = class_scores.max(dim=1)
+
+    # Odfiltruj propozycje poniżej progu pewności
+    mask = scores > CONF_THRESHOLD
+    boxes_cxcywh = boxes_cxcywh[mask]
+    scores = scores[mask]
+    class_ids = class_ids[mask]
+
+    if scores.numel() == 0:
+        return []
+
+    # Konwersja cx,cy,w,h → x1,y1,x2,y2 (format wymagany przez torchvision nms)
+    boxes_xyxy = torch.stack([
+        boxes_cxcywh[:, 0] - boxes_cxcywh[:, 2] / 2,  # x1
+        boxes_cxcywh[:, 1] - boxes_cxcywh[:, 3] / 2,  # y1
+        boxes_cxcywh[:, 0] + boxes_cxcywh[:, 2] / 2,  # x2
+        boxes_cxcywh[:, 1] + boxes_cxcywh[:, 3] / 2,  # y2
+    ], dim=1)
+
+    # NMS — usuń nakładające się boxy dla tego samego obiektu
+    keep = nms(boxes_xyxy, scores, IOU_THRESHOLD)
+
+    detections = []
+    for idx in keep:
+        detections.append({
+            "box": boxes_xyxy[idx].tolist(),   # [x1, y1, x2, y2] w pikselach 640x640
+            "score": round(scores[idx].item(), 4),
+            "class_id": int(class_ids[idx].item()),
+        })
+    return detections
 
 
 def run(raw_data):
@@ -58,7 +110,8 @@ def run(raw_data):
             result = model(input_tensor)
 
         if isinstance(result, torch.Tensor):
-            return {"output": result.tolist()}
+            detections = _apply_nms(result)
+            return {"detections": detections, "count": len(detections)}
         return {"output": str(result)}
     except Exception as e:
         logger.error("Inference error: %s", e)

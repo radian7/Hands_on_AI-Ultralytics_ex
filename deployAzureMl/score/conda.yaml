@@ -1,9 +1,11 @@
 channels:
   - defaults
 dependencies:
-  - python=3.11
+  - python=3.9
   - pip
   - pip:
-      - torch --index-url https://download.pytorch.org/whl/cpu
+      - --index-url https://download.pytorch.org/whl/cpu
+      - --extra-index-url https://pypi.org/simple
+      - torch
       - Pillow
       - numpy

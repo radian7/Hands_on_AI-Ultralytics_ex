@@ -6,7 +6,7 @@ workspace_name      = "Workspace1"
 # ---- Model ----
 model_local_path = "../Exercise Files/03-02/runs/detect/train/weights/best.torchscript"
 model_name       = "torchscript-yolo-model"
-model_version    = "3"
+model_version    = "4"
 
 # ---- Endpoint ----
 endpoint_name   = "torchscript-yolo-endpoint"

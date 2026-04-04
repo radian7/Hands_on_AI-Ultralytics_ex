@@ -57,6 +57,10 @@ resource "azapi_resource" "online_endpoint" {
   parent_id = data.azurerm_machine_learning_workspace.ws.id
   location  = data.azurerm_machine_learning_workspace.ws.location
 
+  identity {
+    type = "SystemAssigned"
+  }
+
   body = {
     properties = {
       authMode            = "Key"

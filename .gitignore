@@ -137,3 +137,20 @@ Exercise Files/03-02/dataset/val/labels.cache
 Exercise Files/03-02/dataset/val/labels.cache
 Exercise Files/03-02/runs/detect/train/weights/best.onnx
 Exercise Files/03-02/runs/detect/train/weights/best.torchscript
+deployAzureMl/.terraform/providers/registry.opentofu.org/azure/azapi/2.9.0/windows_amd64.lock
+deployAzureMl/.terraform/providers/registry.opentofu.org/azure/azapi/2.9.0/windows_amd64/terraform-provider-azapi_v2.9.0.exe
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/azurerm/4.67.0/windows_amd64.lock
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/azurerm/4.67.0/windows_amd64/CHANGELOG-v0.md
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/azurerm/4.67.0/windows_amd64/CHANGELOG-v1.md
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/azurerm/4.67.0/windows_amd64/CHANGELOG-v2.md
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/azurerm/4.67.0/windows_amd64/CHANGELOG-v3.md
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/azurerm/4.67.0/windows_amd64/CHANGELOG.md
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/azurerm/4.67.0/windows_amd64/LICENSE
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/azurerm/4.67.0/windows_amd64/README.md
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/azurerm/4.67.0/windows_amd64/terraform-provider-azurerm.exe
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/local/2.8.0/windows_amd64.lock
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/local/2.8.0/windows_amd64/CHANGELOG.md
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/local/2.8.0/windows_amd64/LICENSE
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/local/2.8.0/windows_amd64/README.md
+deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/local/2.8.0/windows_amd64/terraform-provider-local.exe
+deployAzureMl/.generated/deployment.yaml

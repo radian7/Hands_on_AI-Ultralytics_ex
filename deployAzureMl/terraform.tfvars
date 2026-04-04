@@ -14,5 +14,5 @@ deployment_name = "torchscript-yolo-deploy-1"
 instance_type   = "Standard_DS3_v2"
 instance_count  = 1
 
-# ---- Environment (curated PyTorch CPU) ----
-curated_environment = "azureml://registries/azureml/environments/pytorch-2.2-ubuntu22.04-py310-cpu/labels/latest"
+# ---- Environment (curated PyTorch) ----
+curated_environment = "azureml://registries/azureml/environments/acpt-pytorch-2.2-cuda12.1/labels/latest"

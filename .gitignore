@@ -154,3 +154,6 @@ deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/local/2.8.0/w
 deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/local/2.8.0/windows_amd64/README.md
 deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/local/2.8.0/windows_amd64/terraform-provider-local.exe
 deployAzureMl/.generated/deployment.yaml
+deployAzureMl/terraform.tfstate
+deployAzureMl/terraform.tfstate.backup
+deployAzureMl/terraform.tfstate

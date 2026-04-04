@@ -10,6 +10,6 @@ model = YOLO("runs\\detect\\train\\weights\\best.pt")  # load a custom model
 
 #Export with the model
 results = model.export(
-    format="onnx",  # export format
+    format="TorchScript",  # export format, TorchScript lub onnx
     )
 

@@ -1,12 +1,12 @@
 # ---- Azure ----
-subscription_id     = "ea8144c8-6d45-4103-a569-3871a16e422c"
-resource_group_name = "radian7-rg"
-workspace_name      = "Workspace1"
+subscription_id     = "ea57ebd7-a799-4b02-abbc-51816dd5043e"
+resource_group_name = "rg-labpl-ar-dev"
+workspace_name      = "ML workspace AR"
 
 # ---- Model ----
 model_local_path = "../Exercise Files/03-02/runs/detect/train/weights/best.torchscript"
 model_name       = "torchscript-yolo-model"
-model_version    = "4"
+model_version    = "1"
 
 # ---- Endpoint ----
 endpoint_name   = "torchscript-yolo-endpoint"
@@ -17,4 +17,4 @@ instance_count  = 1
 
 # ---- Environment (lightweight, installs torch via pip) ----
 curated_environment = "azureml://registries/azureml/environments/minimal-py311-inference/labels/latest"
-env_version         = "5"
+env_version         = "1"

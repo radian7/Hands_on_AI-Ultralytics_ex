@@ -177,3 +177,4 @@ deployAzureMl/terraform.tfstate.1775327647.backup
 deployAzureMl/templates/deployment.yaml.tftpl
 deployAzureMl/terraform.tfstate.*
 
+deployAzureMl/terraform.tfvars

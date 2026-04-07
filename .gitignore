@@ -156,8 +156,6 @@ deployAzureMl/.terraform/providers/registry.opentofu.org/hashicorp/local/2.8.0/w
 deployAzureMl/.generated/deployment.yaml
 deployAzureMl/terraform.tfstate
 deployAzureMl/terraform.tfstate.backup
-deployAzureMl/terraform.tfstate
-deployAzureMl/terraform.tfstate
 deployAzureMl/terraform.tfstate.1775323718.backup
 deployAzureMl/terraform.tfstate.1775323720.backup
 deployAzureMl/terraform.tfstate.1775323721.backup
@@ -178,4 +176,4 @@ deployAzureMl/terraform.tfstate.1775327646.backup
 deployAzureMl/terraform.tfstate.1775327647.backup
 deployAzureMl/templates/deployment.yaml.tftpl
 deployAzureMl/terraform.tfstate.*
-deployAzureMl/terraform.tfstate
+

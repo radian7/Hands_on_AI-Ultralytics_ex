@@ -3,8 +3,8 @@
 from ultralytics import YOLO
 
 # Load a model
-#model = YOLO("yolo11n-seg.pt")  # load an official model
-model = YOLO("yolo11n-seg.torchscript")
+model = YOLO("yolo11n-seg.pt")  # load an official model
+#model = YOLO("yolo11n-seg.torchscript")
 # model = YOLO("path/to/best.pt")  # load a custom model
 
 # Predict with the model

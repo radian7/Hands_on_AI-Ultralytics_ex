@@ -178,3 +178,12 @@ deployAzureMl/templates/deployment.yaml.tftpl
 deployAzureMl/terraform.tfstate.*
 
 deployAzureMl/terraform.tfvars
+Exercise Files/03-02/dataset/val/labels.cache
+Exercise Files/03-02/runs/detect/train2/args.yaml
+Exercise Files/03-02/runs/detect/train2/labels.jpg
+Exercise Files/03-02/runs/detect/train2/results.csv
+Exercise Files/03-02/runs/detect/train2/train_batch0.jpg
+Exercise Files/03-02/runs/detect/train2/train_batch1.jpg
+Exercise Files/03-02/runs/detect/train2/train_batch2.jpg
+Exercise Files/03-02/runs/detect/train2/weights/best.pt
+Exercise Files/03-02/runs/detect/train2/weights/last.pt

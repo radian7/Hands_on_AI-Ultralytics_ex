@@ -154,3 +154,12 @@ uv run .\export-model.py
 
 Skrypt załaduje wytrenowany model (`runs\detect\train\weights\best.pt`) i wyeksportuje go do formatu TorchScript.
 
+
+
+# 03-02 trenowanie modelu
+cd .\03-04
+po trenowaniu segmentacji
+oglądamy MaskPR_vurve.png - Precision-recall - krzywa precyzji jest ważna dla trenowania segmentacji
+jesli ma powyżej 85% to jest to dobry wynik, nawet 80% jest akceptowalna
+
+

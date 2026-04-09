@@ -187,3 +187,7 @@ Exercise Files/03-02/runs/detect/train2/train_batch1.jpg
 Exercise Files/03-02/runs/detect/train2/train_batch2.jpg
 Exercise Files/03-02/runs/detect/train2/weights/best.pt
 Exercise Files/03-02/runs/detect/train2/weights/last.pt
+deployAzureMl/terraform.tfvars
+Exercise Files/03-02/dataset/val/labels.cache
+Exercise Files/03-02/runs/detect/train5/weights/best.pt
+Exercise Files/03-02/runs/detect/train5/weights/best.torchscript

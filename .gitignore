@@ -191,3 +191,4 @@ deployAzureMl/terraform.tfvars
 Exercise Files/03-02/dataset/val/labels.cache
 Exercise Files/03-02/runs/detect/train5/weights/best.pt
 Exercise Files/03-02/runs/detect/train5/weights/best.torchscript
+deployAzureMl/terraform.tfstate

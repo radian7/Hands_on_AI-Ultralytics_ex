@@ -1,10 +1,10 @@
 # ---- Azure ----
 subscription_id     = "ea57ebd7-a799-4b02-abbc-51816dd5043e"
 resource_group_name = "rg-labpl-ar-dev"
-workspace_name      = "ML workspace AR"
+workspace_name      = "ML_workspace_AR"
 
 # ---- Model ----
-model_local_path = "../Exercise Files/03-02/runs/detect/train/weights/best.torchscript"
+model_local_path = "../Exercise Files/03-02/runs/detect/train5/weights/best.torchscript"
 model_name       = "torchscript-yolo-model"
 model_version    = "1"
 

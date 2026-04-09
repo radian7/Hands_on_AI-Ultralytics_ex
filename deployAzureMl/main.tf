@@ -10,6 +10,7 @@ data "azurerm_machine_learning_workspace" "ws" {
 }
 
 # ---------- 1. Register model (az ml CLI) ----------
+# show dla idempotetntosci
 
 resource "terraform_data" "model_registration" {
   triggers_replace = filemd5(var.model_local_path)
@@ -17,14 +18,25 @@ resource "terraform_data" "model_registration" {
   provisioner "local-exec" {
     interpreter = ["PowerShell", "-Command"]
     command     = <<-EOT
-      az ml model create `
-        --workspace-name '${var.workspace_name}' `
-        --resource-group '${var.resource_group_name}' `
+      $modelExists = az ml model show `
         --name '${var.model_name}' `
         --version '${var.model_version}' `
-        --path '${var.model_local_path}' `
-        --type custom_model `
-        --description 'TorchScript YOLO model'
+        --workspace-name '${var.workspace_name}' `
+        --resource-group '${var.resource_group_name}' `
+        --query name -o tsv 2>$null
+      if ($modelExists) {
+        Write-Host "Model '${var.model_name}:${var.model_version}' already registered – skipping."
+      } else {
+        az ml model create `
+          --workspace-name '${var.workspace_name}' `
+          --resource-group '${var.resource_group_name}' `
+          --name '${var.model_name}' `
+          --version '${var.model_version}' `
+          --path '${var.model_local_path}' `
+          --type custom_model `
+          --description 'TorchScript YOLO model'
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      }
     EOT
   }
 
@@ -67,6 +79,8 @@ resource "azapi_resource" "online_endpoint" {
       publicNetworkAccess = "Enabled"
     }
   }
+
+  response_export_values = ["*"]
 }
 
 # ---------- 4. Create Managed Online Deployment ----------
@@ -103,6 +117,7 @@ resource "terraform_data" "deployment" {
           --name '${var.deployment_name}' `
           --file '${path.module}/.generated/deployment.yaml' `
           --all-traffic
+        if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       }
     EOT
   }

@@ -101,13 +101,38 @@ resource "terraform_data" "deployment" {
   provisioner "local-exec" {
     interpreter = ["PowerShell", "-Command"]
     command     = <<-EOT
-      $exists = az ml online-deployment show `
+      $ErrorActionPreference = 'Continue'
+
+      # Wait for endpoint to reach Succeeded state
+      Write-Host "Waiting for endpoint '${var.endpoint_name}' to be ready..."
+      $maxWait = 30
+      $attempt = 0
+      do {
+        Start-Sleep -Seconds 10
+        $attempt++
+        $state = az ml online-endpoint show `
+          --name '${var.endpoint_name}' `
+          --workspace-name '${var.workspace_name}' `
+          --resource-group '${var.resource_group_name}' `
+          --query 'provisioning_state' -o tsv 2>$null
+        Write-Host "  attempt $attempt/$maxWait – state: $state"
+      } until ($state -eq 'Succeeded' -or $attempt -ge $maxWait)
+
+      if ($state -ne 'Succeeded') {
+        Write-Error "Endpoint did not reach Succeeded state after $maxWait attempts (last state: $state)"
+        exit 1
+      }
+
+      # Check if deployment already exists (ignore non-zero exit from show)
+      az ml online-deployment show `
         --name '${var.deployment_name}' `
         --endpoint-name '${var.endpoint_name}' `
         --workspace-name '${var.workspace_name}' `
         --resource-group '${var.resource_group_name}' `
-        --query name -o tsv 2>$null
-      if ($exists) {
+        --query name -o tsv 2>$null | Out-Null
+      $deployExists = $LASTEXITCODE -eq 0
+
+      if ($deployExists) {
         Write-Host "Deployment '${var.deployment_name}' already exists – skipping create."
       } else {
         az ml online-deployment create `

@@ -6,10 +6,10 @@ REM ============================================================
 
 REM --- Konfiguracja ---
 REM Uzupelnij ponizsze wartosci po wykonaniu "tofu apply"
-set SCORING_URI=https://torchscript-yolo-endpoint.polandcentral.inference.ml.azure.com/score
+set SCORING_URI=https://torchscript-yolo-endpoint.germanywestcentral.inference.ml.azure.com/score
 set ENDPOINT_NAME=torchscript-yolo-endpoint
-set RESOURCE_GROUP=radian7-rg
-set WORKSPACE_NAME=Workspace1
+set RESOURCE_GROUP=rg-labpl-ar-dev
+set WORKSPACE_NAME=ML-workspace-AR
 
 REM --- Pobranie klucza API ---
 echo Pobieram klucz API endpointu...
